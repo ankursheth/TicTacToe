@@ -16,7 +16,7 @@ def display_board(board):
 def player_input():
     marker = ''
     while not (marker == 'O' or marker == 'X'):
-        marker = input("Please enter 'X' or 'O'").upper()
+        marker = input("Please enter your marker either 'X' or 'O'").upper()
     if marker == 'X':
         return 'X', 'O'
     else:
@@ -59,12 +59,12 @@ def full_board_check(board):
 def player_choice(board):
     position = ''
     while position not in '1 2 3 4 5 6 7 8 9'.split() or not space_check(board, int(position)):
-        position = input('Choose your next position')
+        position = input('Please enter your next position')
     return int(position)
 
 
 def replay():
-    return input("Play again??").lower().startswith('y')
+    return input("Play again??").upper().startswith('y')
 
 print("Play Tic Tac Toe")
 while True:
@@ -99,7 +99,7 @@ while True:
 
             if win_check(the_board, player2_marker):
                 display_board(the_board)
-                print("Congratulations,Player 2, won the Game")
+                print("Congratulations Player 2,You won the Game")
                 game_on = False
             else:
                 if full_board_check(the_board):
@@ -108,5 +108,6 @@ while True:
                     break
                 else:
                     turn = 'player1'
+
     if not replay():
         break
